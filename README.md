@@ -35,7 +35,7 @@ MAC = HMAC(K<sub><i>RS_1</i></sub>, HMAC(MAC, m<sub><i>RS_1</i></sub>))
 
 MAC = HMAC(K<sub><i>RS_2</i></sub>, HMAC(MAC, m<sub><i>RS_2</i></sub>))
 
-These nested, chained HMACs constructions applied on tokens, claims, tickets or cookies may be used to implement both new authorization protocols and to enhance existing ones.
+These nested, chained HMACs constructions applied on tokens, claims, tickets, cookies and macaroons may be used to implement both new authorization protocols and to enhance existing ones.
 
 ## Acknowledgment
 
