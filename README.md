@@ -26,7 +26,7 @@ MAC<sub><i>final</i></sub> = HMAC(K<sub><i>n</i></sub>, ...HMAC(K<sub><i>2</i></
 
 This construction provides the basis of the POCOP mechanism.
 
-#### Chained MACs with Multiple Messages and Keys
+#### Another Experimental Chaining Construction
 
 MAC<sub><i>final</i></sub> = HMAC(K<sub><i>n</i></sub>, ...HMAC(HMAC(K<sub><i>2</i></sub>, HMAC(HMAC(K<sub><i>1</i></sub>, m<sub><i>1</i></sub>), m<sub><i>2</i></sub>)), ...m<sub><i>n</i></sub>))
 
@@ -42,7 +42,9 @@ MAC = HMAC(K<sub><i>RS_1</i></sub>, HMAC(MAC, m<sub><i>RS_1</i></sub>))
 
 MAC<sub><i>final</i></sub> = HMAC(K<sub><i>RS_2</i></sub>, HMAC(MAC, m<sub><i>RS_2</i></sub>))
 
-These nested, chained HMACs constructions applied on tokens, claims, tickets, cookies and macaroons may be used to implement both new authorization protocols and to enhance existing ones.
+### Intermediate Conclusion
+
+Nested, chained HMACs constructions applied on tokens, claims, tickets, cookies and macaroons may be used to implement both new authorization protocols and to enhance existing ones.
 
 ## POCOP Token Mechanism
 
