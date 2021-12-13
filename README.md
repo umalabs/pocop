@@ -26,7 +26,7 @@ MAC<sub><i>final</i></sub> = HMAC(K<sub><i>n</i></sub>, ...HMAC(K<sub><i>2</i></
 
 This construction provides the basis of the POCOP mechanism.
 
-#### Another Experimental Chaining Construction
+#### Experimental Chaining Construction
 
 MAC<sub><i>final</i></sub> = HMAC(K<sub><i>n</i></sub>, ...HMAC(HMAC(K<sub><i>2</i></sub>, HMAC(HMAC(K<sub><i>1</i></sub>, m<sub><i>1</i></sub>), m<sub><i>2</i></sub>)), ...m<sub><i>n</i></sub>))
 
