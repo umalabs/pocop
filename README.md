@@ -42,9 +42,9 @@ MAC<sub><i>final</i></sub> = HMAC(K<sub><i>RS_2</i></sub>, HMAC(MAC, m<sub><i>RS
 
 These nested, chained HMACs constructions applied on tokens, claims, tickets, cookies and macaroons may be used to implement both new authorization protocols and to enhance existing ones.
 
-## POCOP Mechanism
+## POCOP Token Mechanism
 
-The Chained MACs with Multiple Keys construction is used as the basis of the POCOP token mechanism.
+The [Chained MACs with Multiple Keys][2] construction is used as the basis of the POCOP token mechanism.
 
 The root message of the token must contain:
 
@@ -59,4 +59,5 @@ The root message of the token must contain:
 Credits go to [WG - User-Managed Access][1].
 
 [1]: https://kantarainitiative.org/confluence/display/uma/Home
-[2]: https://github.com/umalabs/uma-pocop-tokens
+[2]: https://github.com/umalabs/uma-pocop-tokens#chained-macs-with-multiple-keys
+[3]: https://github.com/umalabs/uma-pocop-tokens#pocop-mechanism
