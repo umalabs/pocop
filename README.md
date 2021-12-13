@@ -16,6 +16,8 @@ The MAC<sub><i>final</i></sub> value is calculated starting with HMAC root key K
 
 MAC<sub><i>final</i></sub> = HMAC(...HMAC(HMAC(K<sub><i>root</i></sub>, m<sub><i>1</i></sub>), m<sub><i>2</i></sub>,), ...m<sub><i>n</i></sub>)
 
+Google Macaroons are based on this construction.
+
 #### Chained MACs with Multiple Keys
 
 The MAC<sub><i>final</i></sub> value is calculated starting with the first HMAC key K<sub><i>1</i></sub> and the root message m<sub><i>root</i></sub>, each MAC value being used as the HMAC message for the next Key.
@@ -44,7 +46,7 @@ These nested, chained HMACs constructions applied on tokens, claims, tickets, co
 
 ## POCOP Token Mechanism
 
-The [Chained MACs with Multiple Keys][2] construction is used as the basis of the POCOP token mechanism.
+The [Chained MACs with Multiple Keys][4] construction is used as the basis of the POCOP token mechanism.
 
 The root message of the token must contain:
 
@@ -54,10 +56,13 @@ The root message of the token must contain:
 
 * The timestamp of when the token was issued.
 
+The claims can be chained using the [Chained MACs with Multiple Messages][3] construction.
+
 ## Acknowledgment
 
 Credits go to [WG - User-Managed Access][1].
 
 [1]: https://kantarainitiative.org/confluence/display/uma/Home
-[2]: https://github.com/umalabs/uma-pocop-tokens#chained-macs-with-multiple-keys
-[3]: https://github.com/umalabs/uma-pocop-tokens#pocop-mechanism
+[2]: https://github.com/umalabs/uma-pocop-tokens#chained-macs-with-multiple-messages
+[3]: https://github.com/umalabs/uma-pocop-tokens#chained-macs-with-multiple-keys
+[4]: https://github.com/umalabs/uma-pocop-tokens#pocop-mechanism
