@@ -60,11 +60,16 @@ The root message of the token must contain:
 
 The claims can be chained using the [Chained MACs with Multiple Messages][3] construction.
 
+## Conclusion
+
+...
+
 ## Acknowledgment
 
-Credits go to [WG - User-Managed Access][1].
+Credits go to [WG - User-Managed Access][1] and [Google Research Publications][2].
 
 [1]: https://kantarainitiative.org/confluence/display/uma/Home
-[2]: https://github.com/umalabs/uma-pocop-tokens#chained-macs-with-multiple-messages
-[3]: https://github.com/umalabs/uma-pocop-tokens#chained-macs-with-multiple-keys
-[4]: https://github.com/umalabs/uma-pocop-tokens#pocop-mechanism
+[2]: https://research.google/pubs/pub41892/
+[3]: https://github.com/umalabs/uma-pocop-tokens#chained-macs-with-multiple-messages
+[4]: https://github.com/umalabs/uma-pocop-tokens#chained-macs-with-multiple-keys
+[5]: https://github.com/umalabs/uma-pocop-tokens#pocop-mechanism
