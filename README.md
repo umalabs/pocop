@@ -42,6 +42,8 @@ MAC = HMAC(K<sub><i>RS_1</i></sub>, HMAC(MAC, m<sub><i>RS_1</i></sub>))
 
 MAC<sub><i>final</i></sub> = HMAC(K<sub><i>RS_2</i></sub>, HMAC(MAC, m<sub><i>RS_2</i></sub>))
 
+This combined construction with multiple messages and multiple keys is applicable to the JWT format.
+
 ### Intermediate Conclusion
 
 Nested, chained HMACs constructions applied on tokens, claims, tickets, cookies and macaroons may be used to implement both new authorization protocols and to enhance existing ones.
