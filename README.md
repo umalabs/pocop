@@ -50,7 +50,7 @@ Nested, chained HMACs constructions applied on tokens, claims, tickets, cookies 
 
 ## POCOP Token Mechanism
 
-The [Chained MACs with Multiple Keys][4] construction is used as the basis of the POCOP token mechanism.
+The Chained MACs with Multiple Keys construction is used as the basis of the POCOP token mechanism.
 
 The root message of the token must contain:
 
@@ -60,7 +60,7 @@ The root message of the token must contain:
 
 * The timestamp of when the token was issued.
 
-The claims can be chained using the [Chained MACs with Multiple Messages][3] construction.
+The claims can be chained using the Chained MACs with Multiple Messages construction to form a composite [UMA Macaroons][6] mechanism.
 
 ## Conclusion
 
@@ -75,3 +75,4 @@ Credits go to [WG - User-Managed Access][1] and [Google Research Publications][2
 [3]: https://github.com/umalabs/uma-pocop-tokens#chained-macs-with-multiple-messages
 [4]: https://github.com/umalabs/uma-pocop-tokens#chained-macs-with-multiple-keys
 [5]: https://github.com/umalabs/uma-pocop-tokens#pocop-mechanism
+[6]: https://github.com/umalabs/uma-macaroons
