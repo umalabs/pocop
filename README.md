@@ -46,7 +46,7 @@ This combined construction with multiple messages and multiple keys is applicabl
 
 ### Intermediate Conclusion
 
-Nested, chained HMACs constructions applied on tokens, claims, tickets, cookies and macaroons may be used to implement both new authorization protocols and to enhance existing ones.
+Nested, chained HMACs constructions applied on tokens, tickets, cookies and macaroons may be used to implement both new authorization protocols and to enhance existing ones.
 
 ## POCOP Token Mechanism
 
