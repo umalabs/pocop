@@ -10,7 +10,7 @@ Bearer tokens are vulnerable at rest and in transit when an attacker is able to 
 
 ## Concept
 
-#### Chained MACs with Multiple Messages
+#### Chained-MACs-with-Multiple-Messages
 
 The MAC<sub><i>final</i></sub> value is calculated starting with HMAC root key K<sub><i>root</i></sub> and the first message m<sub><i>1</i></sub>, each MAC value being used as the HMAC key for the next message.
 
@@ -18,7 +18,7 @@ MAC<sub><i>final</i></sub> = HMAC(...HMAC(HMAC(K<sub><i>root</i></sub>, m<sub><i
 
 Google Macaroons are based on this construction.
 
-#### Chained MACs with Multiple Keys
+#### Chained-MACs-with-Multiple-Keys
 
 The MAC<sub><i>final</i></sub> value is calculated starting with the first HMAC key K<sub><i>1</i></sub> and the root message m<sub><i>root</i></sub>, each MAC value being used as the HMAC message for the next Key.
 
@@ -50,7 +50,7 @@ Nested, chained HMACs constructions applied on tokens, claims, tickets, cookies 
 
 ## POCOP Token Mechanism
 
-The Chained MACs with Multiple Keys construction is used as the basis of the POCOP token mechanism.
+The Chained-MACs-with-Multiple-Keys construction is used as the basis of the POCOP token mechanism.
 
 The root message of the token must contain:
 
@@ -60,7 +60,7 @@ The root message of the token must contain:
 
 * The timestamp of when the token was issued.
 
-The claims can be chained using the Chained MACs with Multiple Messages construction to form a composite [UMA Macaroons][6] mechanism.
+The claims can be chained using the Chained-MACs-with-Multiple-Messages construction to form a composite [UMA Macaroons][6] mechanism.
 
 ## Conclusion
 
