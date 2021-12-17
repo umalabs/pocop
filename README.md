@@ -2,11 +2,11 @@
 
 ## Abstract
 
-This document introduces a POCOP mechanism based on a nested, chained HMACs construction to provide chained authenticity and integrity protection.
+This document introduces a POCOP mechanism based on nested, chained HMACs constructions to provide chained authenticity and integrity protection.
 
 ## Introduction
 
-Bearer tokens are vulnerable at rest and in transit when an attacker is able to intercept a token to illegally access private information. In order to mitigate some of the risk associated with bearer tokens, proof-of-chain-of-possession may be used to authenticate the token. Chain-of-possession is a chronological tamper-resistant record of all the possessors of tokens and the changes that have been made.
+Bearer tokens are vulnerable at rest and in transit when an attacker is able to intercept a token to illegally access private information. In order to mitigate some of the risk associated with bearer tokens, proof-of-chain-of-possession may be used to authenticate the token. Chain-of-possession token is a chronological tamper-resistant record of all its possessors and the changes that have been made to it.
 
 ## Concept
 
@@ -26,7 +26,7 @@ MAC<sub><i>final</i></sub> = HMAC(K<sub><i>n</i></sub>, ...HMAC(K<sub><i>2</i></
 
 This construction provides the basis of the POCOP mechanism.
 
-#### Experimental Chaining Construction
+#### Example of Complex Chained Construction
 
 MAC<sub><i>final</i></sub> = HMAC(K<sub><i>n</i></sub>, ...HMAC(HMAC(K<sub><i>2</i></sub>, HMAC(HMAC(K<sub><i>1</i></sub>, m<sub><i>1</i></sub>), m<sub><i>2</i></sub>)), ...m<sub><i>n</i></sub>))
 
@@ -38,15 +38,19 @@ broken down into individual MACs
 
 MAC = HMAC(K<sub><i>client</i></sub>, m<sub><i>client</i></sub>)
 
-MAC = HMAC(K<sub><i>RS_1</i></sub>, HMAC(MAC, m<sub><i>RS_1</i></sub>))
+MAC = HMAC(MAC, m<sub><i>RS_1</i></sub>)
 
-MAC<sub><i>final</i></sub> = HMAC(K<sub><i>RS_2</i></sub>, HMAC(MAC, m<sub><i>RS_2</i></sub>))
+MAC = HMAC(K<sub><i>RS_1</i></sub>, MAC)
 
-This combined construction with multiple messages and multiple keys is applicable to the JWT format.
+MAC = HMAC(MAC, m<sub><i>RS_2</i></sub>)
+
+MAC<sub><i>final</i></sub> = HMAC(K<sub><i>RS_2</i></sub>, MAC)
+
+This complex construction with multiple messages and multiple keys is applicable to the JWT format.
 
 ### Intermediate Conclusion
 
-Nested, chained HMACs constructions applied on tokens, tickets, cookies and macaroons may be used to implement both new authorization protocols and to enhance existing ones.
+Nested, chained complex HMACs constructions applied on tokens, tickets, cookies and macaroons may be used to implement both new authorization protocols and to enhance existing ones.
 
 ## POCOP Token Mechanism
 
@@ -60,7 +64,7 @@ The root message of the token must contain:
 
 * The timestamp of when the token was issued.
 
-The claims can be chained using the Chained-MACs-with-Multiple-Messages construction to form a composite [UMA Macaroons][6] mechanism.
+The claims can be chained using the Chained-MACs-with-Multiple-Messages construction. The complex combination of Chained-MACs-with-Multiple-Messages and Chained-MACs-with-Multiple-Keys constructions forms a basis of the [UMA Macaroons][6] mechanism.
 
 ## Conclusion
 
