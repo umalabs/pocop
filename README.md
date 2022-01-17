@@ -26,7 +26,7 @@ MAC<sub><i>final</i></sub> = HMAC(K<sub><i>n</i></sub>, ...HMAC(K<sub><i>2</i></
 
 This construction provides the basis of the POCOP mechanism.
 
-#### Example of Complex Chained Construction
+#### Example 1 of Complex Chained Construction
 
 MAC<sub><i>final</i></sub> = HMAC(K<sub><i>n</i></sub>, ...HMAC(HMAC(K<sub><i>2</i></sub>, HMAC(HMAC(K<sub><i>1</i></sub>, m<sub><i>1</i></sub>), m<sub><i>2</i></sub>)), ...m<sub><i>n</i></sub>))
 
@@ -48,6 +48,19 @@ MAC<sub><i>final</i></sub> = HMAC(K<sub><i>RS_2</i></sub>, MAC)
 
 This complex construction with multiple messages and multiple keys is applicable to the JWT format.
 
+#### Example 2 of Complex Chained Construction
+
+MAC<sub><i>AS</i></sub> = HMAC(K<sub><i>AS</i></sub>, NONCE<sub><i>AS</i></sub> || m<sub><i>AS</i></sub>)<br>
+*<br>
+MAC<sub><i>AS</i></sub> = HMAC(K<sub><i>client</i></sub>, MAC<sub><i>AS</i></sub>)<br>
+MAC<sub><i>client</i></sub> = HMAC(K<sub><i>client</i></sub>, MAC<sub><i>AS</i></sub> || NONCE<sub><i>client</i></sub> || m<sub><i>client</i></sub>)<br>
+*<br>
+MAC<sub><i>client</i></sub> = HMAC(K<sub><i>RS_1</i></sub>, MAC<sub><i>client</i></sub>)<br>
+MAC<sub><i>RS_1</i></sub> = HMAC(K<sub><i>RS_1</i></sub>, MAC<sub><i>client</i></sub> || NONCE<sub><i>RS_1</i></sub> || m<sub><i>RS_1</i></sub>)<br>
+*<br>
+MAC<sub><i>RS_1</i></sub> = HMAC(K<sub><i>RS_2</i></sub>, MAC<sub><i>RS_1</i></sub>)<br>
+MAC<sub><i>final</i></sub> = HMAC(K<sub><i>RS_2</i></sub>, MAC<sub><i>RS_1</i></sub> || NONCE<sub><i>RS_2</i></sub> || m<sub><i>RS_2</i></sub>)<br>
+
 ### Intermediate Conclusion
 
 Nested, chained complex HMACs constructions applied on tokens, tickets, cookies and macaroons may be used to implement both new authorization protocols and to enhance existing ones.
@@ -64,7 +77,7 @@ The root message of the token must contain:
 
 * The timestamp of when the token was issued.
 
-The claims can be chained using the Chained-MACs-with-Multiple-Messages construction. The complex combination of Chained-MACs-with-Multiple-Messages and Chained-MACs-with-Multiple-Keys constructions forms a basis of the [UMA Macaroons][6] mechanism.
+The claims can be chained using the Chained-MACs-with-Multiple-Messages construction. The complex combination of Chained-MACs-with-Multiple-Messages and Chained-MACs-with-Multiple-Keys constructions forms a basis of the [Auditable Authorization][6] mechanism.
 
 ## Conclusion
 
@@ -79,4 +92,4 @@ Credits go to [WG - User-Managed Access][1] and [Google Research Publications][2
 [3]: https://github.com/umalabs/uma-pocop-tokens#chained-macs-with-multiple-messages
 [4]: https://github.com/umalabs/uma-pocop-tokens#chained-macs-with-multiple-keys
 [5]: https://github.com/umalabs/uma-pocop-tokens#pocop-mechanism
-[6]: https://github.com/umalabs/uma-macaroons
+[6]: https://github.com/umalabs/auditable-authorization
