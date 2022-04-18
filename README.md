@@ -77,7 +77,7 @@ The root message of the token must contain:
 
 * The timestamp of when the token was issued.
 
-The claims can be chained using the Chained-MACs-with-Multiple-Messages construction. The complex combination of Chained-MACs-with-Multiple-Messages and Chained-MACs-with-Multiple-Keys constructions forms a basis of the [Auditable Authorization][6] mechanism.
+The claims can be chained using the Chained-MACs-with-Multiple-Messages construction. The complex combination of Chained-MACs-with-Multiple-Messages and Chained-MACs-with-Multiple-Keys constructions forms a basis of the [Chained Credentials-Based Authorization][6] mechanism.
 
 ## Conclusion
 
@@ -92,4 +92,4 @@ Credits go to [WG - User-Managed Access][1] and [Google Research Publications][2
 [3]: https://github.com/umalabs/uma-pocop-tokens#chained-macs-with-multiple-messages
 [4]: https://github.com/umalabs/uma-pocop-tokens#chained-macs-with-multiple-keys
 [5]: https://github.com/umalabs/uma-pocop-tokens#pocop-mechanism
-[6]: https://github.com/umalabs/auditable-authorization
+[6]: https://github.com/umalabs/chained-credentials-based-authorization
